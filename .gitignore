@@ -1,0 +1,60 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv/
+
+# Airflow logs and related files
+logs/
+airflow.db
+airflow.cfg
+unittests.cfg
+webserver_config.py
+
+# SQLite and other DB files
+*.db
+*.sqlite
+
+# Environment files
+.env
+.env.*
+
+# macOS
+.DS_Store
+
+# VSCode
+.vscode/
+
+# Python egg files
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+bin/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+
+# Pytest
+.pytest_cache/
+
+# Airflow password and auth files
+*/simple_auth_manager_passwords.json.generated
+
+# JetBrains IDEs
+.idea/
