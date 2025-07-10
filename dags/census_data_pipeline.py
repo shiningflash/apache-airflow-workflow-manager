@@ -1,12 +1,11 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-from airflow.utils.dates import days_ago
 from airflow.utils.log.logging_mixin import LoggingMixin
 
 import pandas as pd
 import requests
 import sqlite3
-import os
+import pendulum
 
 # Constants
 DATA_URL = "https://raw.githubusercontent.com/practical-bootcamp/week4-assignment1-template/main/city_census.csv"
@@ -25,11 +24,10 @@ default_args = {
 with DAG(
     dag_id='census_data_pipeline',
     default_args=default_args,
-    start_date=days_ago(1),
-    schedule_interval=None,  # Manual trigger
+    start_date=pendulum.now("UTC").subtract(days=1),
     catchup=False,
     description="A pipeline to extract, transform, and load census data using Airflow",
-    tags=["example", "census", "ETL"]
+    tags=["example", "ETL"]
 ) as dag:
 
     def download_data(**kwargs):
